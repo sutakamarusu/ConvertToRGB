@@ -1,0 +1,288 @@
+@charset "UTF-8";
+
+/****************************************************************
+GENERAL STYLING
+*****************************************************************/
+html {
+    font-size: 100%;
+}
+body{
+	color: #555;
+	text-align: center;
+	font-family: 'Varela Round', sans-serif;
+}
+
+/* Link */
+a {
+	color: #555;
+    text-decoration: none;
+    border-bottom: 1px dotted #555;
+}
+a:hover {
+	color: #aaa;
+}
+
+.wrapper {
+	max-width: 900px;
+	padding: 2rem;
+	margin: 0 auto;
+}
+
+/* SVG */
+.defs {
+	display: none;
+}
+
+/* Text */
+h1 {
+	margin-bottom: 2rem;
+	font-size: 3rem;
+}
+.desc {
+	margin-bottom: 10px;
+}
+.desc-ja {
+	font-family: 'M PLUS Rounded 1c', sans-serif;
+	font-size: .875rem;
+}
+
+/****************************************************************
+ADD NEW COLOR AREA
+*****************************************************************/
+#app {
+	margin: 4rem 0;
+}
+.hash {
+	font-size: 3rem;
+	margin-right: .4rem;
+}
+input[type="text"] {
+	border: 4px solid #ddd;
+	border-radius: 1rem;
+	padding: 5px;
+	width: 16rem;
+	font-size: 3rem;
+}
+input[type="text"]::placeholder{
+	color: #ccc;
+}
+button {
+	background: #ddd;
+	border-radius: 1rem;
+	padding: 1.25rem 1rem;
+    font-size: 1.5rem;
+    position: relative;
+	top: -8px;
+}
+button:hover {
+	background: #ccc;
+}
+.new-color {
+	display: flex;
+	justify-content: center;
+	margin: 4rem 0;
+}
+.new-color .color-sample {
+	margin-right: 20px;
+}
+.new-color .copy-value {
+	font-size: 2rem;
+}
+
+/****************************************************************
+COLOR LIST AREA
+*****************************************************************/
+table {
+	border-collapse: collapse;
+	text-align: center;
+	width: 70%;
+	margin: 3rem auto;
+}
+th,
+td {
+	border-bottom: 1px solid #ddd;
+	padding: 10px;
+	vertical-align: middle;
+}
+th {
+	font-weight: normal;
+	color: #999;
+}
+.color-sample {
+	width: 60px;
+	height: 40px;
+	border-radius: .4rem;
+	display: inline-block;
+}
+/*
+background:linear-gradient(-34deg, #ccc 47%, #eee 47%, #eee 53%, #ccc 53%);
+*/
+
+/****************************************************************
+COPY TEXT
+*****************************************************************/
+.copy-value {
+	font-weight: bold;
+	font-size: 1.25rem;
+	cursor: pointer;
+	position: relative;
+}
+.copy-value:hover {
+	animation: hover-flash 1s;
+}
+
+/* Animation */
+@keyframes hover-flash {
+  from { opacity: .2; }
+  to { opacity: 1; }
+}
+
+/* Tooltip */
+.tooltip::after {
+	content: 'Copied!';
+	background: #555;
+	display: inline-block;
+	color: #fff;
+	border-radius: .4rem;
+	position: absolute;
+	left: 50%;
+	bottom: -.8rem;
+	transform: translate(-50%, 0);
+	font-size: .75rem;
+	padding: 4px 10px 6px 10px;
+	animation: fade-tooltip .5s 1s 1 forwards;
+}
+.new-color .tooltip::after {
+	bottom: -2rem;
+}
+
+/* Animation */
+@keyframes fade-tooltip {
+  to { opacity: 0; }
+}
+
+/****************************************************************
+INVALID COLOR
+*****************************************************************/
+.error {
+	animation: shake .6s ease-out both;
+}
+
+/* Animation */
+@keyframes shake {
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+  30%, 50%, 70% {
+    transform: translate3d(-6px, 0, 0);
+  }
+  40%, 60% {
+    transform: translate3d(6px, 0, 0);
+  }
+}
+
+/****************************************************************
+BELOW THE CONTENTS
+*****************************************************************/
+/* Github button */
+.btn-github {
+	background: #555;
+	border-radius: 1rem;
+	display: inline-block;
+	color: #fff;
+	padding: .5rem 1rem .8rem;
+}
+.btn-github:hover {
+	background: #777;
+	color: #fff;
+	text-decoration: none;
+}
+.btn-github svg {
+	width: 1.4rem;
+	height: 1.4rem;
+	fill: #fff;
+	margin-right: .6rem;
+	position: relative;
+	top: .3rem
+}
+
+/* Tutorial links */
+.links {
+	border-top: 1px solid #ddd;
+	padding-top: 4rem;
+	margin-bottom: 3rem;
+}
+
+/****************************************************************
+FOOTER
+*****************************************************************/
+footer {
+
+}
+.copyright {
+	font-size: .75rem;
+}
+.copyright svg {
+	fill: #f99;
+	width: 14px;
+	height: 12px;
+	position: relative;
+	top: 2px;
+}
+.copyright svg:hover {
+	animation: heart-beats .3s infinite alternate;
+}
+.heart-link {
+	border: none;
+}
+
+/* Animation */
+@keyframes heart-beats {
+	to {
+		transform: scale(1.3);
+		transform-origin: center center;
+	}
+}
+
+/****************************************************************
+FOR SMALL SCREEN
+*****************************************************************/
+@media (max-width: 700px) {
+	#app {
+		margin-top: 2rem;
+	}
+	.hash {
+	    font-size: 2rem;
+	    margin-right: 0;
+	}
+	input[type="text"] {
+	    width: 53vw;
+	    font-size: 2.5rem;
+	}
+	button {
+	    padding: 1rem .5rem;
+	    font-size: 1.25rem;
+	}
+	.new-color {
+		margin: 2rem 0;
+	}
+	.new-color .copy-value {
+    	font-size: 1.25rem;
+	}
+	table {
+		width: 100%;
+	}
+	td.copy-value {
+		font-size: 1rem;
+	}
+	.color-sample {
+	    width: 40px;
+	    height: 30px;
+	}
+}
+
+@media (max-width: 500px) {
+	h1 {
+		font-size: 1.75rem;
+	}
+}
